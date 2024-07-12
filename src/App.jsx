@@ -1,4 +1,4 @@
-import Rooms from "./Rooms.jsx"
+import Rooms from "./Components/Rooms.jsx"
 
 export default function App() {
 

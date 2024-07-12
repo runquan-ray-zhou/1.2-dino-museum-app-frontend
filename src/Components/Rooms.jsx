@@ -1,6 +1,9 @@
 import { useRef, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { OrbitControls } from '@react-three/drei'
+import { useLoader } from "@react-three/fiber";
+import { Environment, OrbitControls } from "@react-three/drei";
+import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
+import { Suspense } from "react";
 
 function Box(props) {
   // This reference gives us direct access to the THREE.Mesh object
@@ -25,6 +28,12 @@ function Box(props) {
   )
 }
 
+const Dino = () => {
+  const fbx = useLoader(FBXLoader, "Apatosaurus.fbx");
+
+  return <primitive object={fbx} scale={0.005} />;
+};
+
 export default function Room() {
   return (
     <Canvas>
@@ -33,6 +42,7 @@ export default function Room() {
       <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI} />
       // Entrance Room
       <Box position={[0, 0, -6]} />
+      <Dino />
       // Ticket Center
       <Box position={[0, 0, -4]} />
       // Ellis Family Hall
