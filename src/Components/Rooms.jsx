@@ -18,7 +18,7 @@ function Box(props) {
     <mesh
       {...props}
       ref={ref}
-      scale={clicked ? 1.5 : 1}
+      scale={clicked ? 2 : 1.5}
       onClick={(event) => click(!clicked)}
       onPointerOver={(event) => (event.stopPropagation(), hover(true))}
       onPointerOut={(event) => hover(false)}>
@@ -31,16 +31,51 @@ function Box(props) {
 const Apatosaurus = () => {
   const fbx = useLoader(FBXLoader, "Apatosaurus.fbx");
 
-  return <primitive object={fbx} scale={0.0002} position={[0, -0.5, 7]}/>;
+  return <primitive object={fbx} scale={0.0005} position={[0, -0.6, 7]}/>;
+};
+
+const Parasaurolophus = () => {
+  const fbx = useLoader(FBXLoader, "Parasaurolophus.fbx");
+
+  return <primitive object={fbx} scale={0.0005} position={[1, -0.6, 7]}/>;
+};
+
+const Stegosaurus = () => {
+  const fbx = useLoader(FBXLoader, "Stegosaurus.fbx");
+
+  return <primitive object={fbx} scale={0.0005} position={[2, -0.6, 7]}/>;
+};
+
+const Trex = () => {
+  const fbx = useLoader(FBXLoader, "Trex.fbx");
+
+  return <primitive object={fbx} scale={0.0005} position={[3, -0.6, 7]}/>;
+};
+
+const Triceratops = () => {
+  const fbx = useLoader(FBXLoader, "Triceratops.fbx");
+
+  return <primitive object={fbx} scale={0.0005} position={[4, -0.6, 7]}/>;
+};
+
+const Velociraptor = () => {
+  const fbx = useLoader(FBXLoader, "Velociraptor.fbx");
+
+  return <primitive object={fbx} scale={0.0005} position={[5, -0.6, 7]}/>;
 };
 
 export default function Room() {
   return (
     <Canvas>
       <ambientLight intensity={Math.PI / 2} />
-      <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI} />
+      {/* <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI} /> */}
       <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI} />
-      <Apatosaurus position={[0, 0, 8]} />
+      <Apatosaurus/>
+      <Parasaurolophus />
+      <Stegosaurus />
+      <Trex />
+      <Triceratops />
+      <Velociraptor />
       // Entrance Room
       <Box position={[0, 0, -6]} />
       // Ticket Center
