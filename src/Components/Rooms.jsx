@@ -1,9 +1,32 @@
 import { useRef, useState } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
+import { Canvas, extend } from '@react-three/fiber'
 import { useLoader } from "@react-three/fiber";
-import { Environment, OrbitControls } from "@react-three/drei";
-import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
-import { Suspense } from "react";
+import { OrbitControls } from "@react-three/drei";
+import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader"
+import { FontLoader } from "three/examples/jsm/loaders/FontLoader"
+import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry';
+import optimer from "three/examples/fonts/optimer_regular.typeface.json"
+
+extend({ TextGeometry })
+
+function Texts(){
+
+  const optimerRegular = new FontLoader().parse(optimer)
+
+  const textOptions = {
+    font: optimerRegular,
+    size: 0.5,
+    depth: 0.1
+  }
+  
+  return(
+    <mesh position={[-3, 1, -6]} rotation={[0, 0, 0]}>
+      <textGeometry attach='geometry' args={["Owen Family Room", textOptions]}/>
+      <meshLambertMaterial attach='material' color={'orange'}/>
+    </mesh>
+  )
+
+}
 
 function Box(props) {
   // This reference gives us direct access to the THREE.Mesh object
@@ -18,7 +41,7 @@ function Box(props) {
     <mesh
       {...props}
       ref={ref}
-      scale={clicked ? 2 : 1.5}
+      scale={1.5}
       onClick={(event) => click(!clicked)}
       onPointerOver={(event) => (event.stopPropagation(), hover(true))}
       onPointerOut={(event) => hover(false)}>
@@ -65,10 +88,12 @@ const Velociraptor = () => {
 };
 
 export default function Room() {
+
   return (
     <Canvas>
+      <Texts />
       <ambientLight intensity={Math.PI / 2} />
-      {/* <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI} /> */}
+      <spotLight position={[1, 100, 1]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI} />
       <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI} />
       <Apatosaurus/>
       <Parasaurolophus />
@@ -76,7 +101,7 @@ export default function Room() {
       <Trex />
       <Triceratops />
       <Velociraptor />
-      // Entrance Room
+      // Owen Family Room
       <Box position={[0, 0, -6]} />
       // Ticket Center
       <Box position={[0, 0, -4]} />
@@ -102,7 +127,7 @@ export default function Room() {
       <Box position={[2, 0, 4]} />
       // Bryan Decker Hall
       <Box position={[4, 0, 4]} />
-      // Owen Family Room
+      // Entrance Room
       <Box position={[2, 0, 6]} />
       <OrbitControls />
     </Canvas>
