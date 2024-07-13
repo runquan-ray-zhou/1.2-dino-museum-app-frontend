@@ -23,15 +23,15 @@ function Box(props) {
       onPointerOver={(event) => (event.stopPropagation(), hover(true))}
       onPointerOut={(event) => hover(false)}>
       <boxGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial color={hovered ? 'hotpink' : 'orange'} />
+      <meshStandardMaterial color={hovered ? 'hotpink' : 'lightgrey'} />
     </mesh>
   )
 }
 
-const Dino = () => {
+const Apatosaurus = () => {
   const fbx = useLoader(FBXLoader, "Apatosaurus.fbx");
 
-  return <primitive object={fbx} scale={0.005} />;
+  return <primitive object={fbx} scale={0.0002} position={[0, -0.5, 7]}/>;
 };
 
 export default function Room() {
@@ -40,9 +40,9 @@ export default function Room() {
       <ambientLight intensity={Math.PI / 2} />
       <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI} />
       <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI} />
+      <Apatosaurus position={[0, 0, 8]} />
       // Entrance Room
       <Box position={[0, 0, -6]} />
-      <Dino />
       // Ticket Center
       <Box position={[0, 0, -4]} />
       // Ellis Family Hall
