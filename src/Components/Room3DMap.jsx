@@ -82,10 +82,11 @@ const Velociraptor = () => {
   return <primitive object={fbx} scale={0.0005} position={[5, -0.6, 7]}/>;
 };
 
-export default function Room() {
+export default function Room3DMap() {
 
   return (
     <Canvas>
+      // Rooms
       <TicketCenterText />
       <OwenFamilyRoomText />
       <EntranceRoomText />
@@ -100,15 +101,20 @@ export default function Room() {
       <BlackwellAmphitheaterText />
       <ReyesHallText />
       <BryanDeckerHallText />
+      
+      // Lighting
       <ambientLight intensity={Math.PI / 2} />
       <spotLight position={[1, 100, 1]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI} />
       <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI} />
+
+      // Dinos
       <Apatosaurus/>
       <Parasaurolophus />
       <Stegosaurus />
       <Trex />
       <Triceratops />
       <Velociraptor />
+
       // Owen Family Room
       <Box position={[0, 0, -6]} />
       // Ticket Center
