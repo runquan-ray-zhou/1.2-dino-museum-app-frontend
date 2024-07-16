@@ -9,7 +9,7 @@ import optimer from "three/examples/fonts/optimer_regular.typeface.json"
 
 extend({ TextGeometry })
 
-function Texts(){
+function Texts1(){
 
   const optimerRegular = new FontLoader().parse(optimer)
 
@@ -22,6 +22,25 @@ function Texts(){
   return(
     <mesh position={[-3, 1, -6]} rotation={[0, 0, 0]}>
       <textGeometry attach='geometry' args={["Owen Family Room", textOptions]}/>
+      <meshLambertMaterial attach='material' color={'orange'}/>
+    </mesh>
+  )
+
+}
+
+function Texts2(){
+
+  const optimerRegular = new FontLoader().parse(optimer)
+
+  const textOptions = {
+    font: optimerRegular,
+    size: 0.5,
+    depth: 0.1
+  }
+  
+  return(
+    <mesh position={[1, 1, 6]} rotation={[0, 0, 0]}>
+      <textGeometry attach='geometry' args={["Entrance", textOptions]}/>
       <meshLambertMaterial attach='material' color={'orange'}/>
     </mesh>
   )
@@ -89,9 +108,12 @@ const Velociraptor = () => {
 
 export default function Room() {
 
+  const [ roomList, setRoomList] = useState([1,2])
+
   return (
     <Canvas>
-      <Texts />
+      <Texts1 />
+      <Texts2 />
       <ambientLight intensity={Math.PI / 2} />
       <spotLight position={[1, 100, 1]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI} />
       <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI} />
