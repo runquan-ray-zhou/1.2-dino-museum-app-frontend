@@ -3,50 +3,25 @@ import { Canvas, extend } from '@react-three/fiber'
 import { useLoader } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader"
-import { FontLoader } from "three/examples/jsm/loaders/FontLoader"
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry';
-import optimer from "three/examples/fonts/optimer_regular.typeface.json"
-import TicketCenter from "./TicketCenter.jsx"
+
+// Room Name Text
+import TicketCenterText from "./TicketCenterText.jsx"
+import OwenFamilyRoomText from "./OwenFamilyRoomText.jsx"
+import EntranceRoomText from "./EntranceRoomText.jsx"
+import TerrellLeonLectureRoomText from './TerrellLeonLectureRoomText.jsx';
+import RobertsRoomText from './RobertsRoomText.jsx';
+import ReyesHallText from './ReyesHallText.jsx';
+import PaxtonDeckerTerraceText from './PaxtonDeckerTerraceText.jsx';
+import KitHopkinsEducationWingText from './KitHopkinsEducationWingText.jsx';
+import HaleyHallText from './HaleyHallText.jsx';
+import EllisFamilyHallText from './EllisFamilyHallText.jsx';
+import CoatCheckRoomTextText from './CoatCheckRoomText.jsx';
+import CabreraHallText from './CabreraHallText.jsx';
+import BryanDeckerHallText from './BryanDeckerHallText.jsx';
+import BlackwellAmphitheaterText from './BlackwellAmphitheaterText.jsx';
 
 extend({ TextGeometry })
-
-function OwenFamilyRoom(){
-
-  const optimerRegular = new FontLoader().parse(optimer)
-
-  const textOptions = {
-    font: optimerRegular,
-    size: 0.5,
-    depth: 0.1
-  }
-  
-  return(
-    <mesh position={[-3, 1, -6]} rotation={[0, 0, 0]}>
-      <textGeometry attach='geometry' args={["Owen Family Room", textOptions]}/>
-      <meshLambertMaterial attach='material' color={'orange'}/>
-    </mesh>
-  )
-
-}
-
-function EntranceRoom(){
-
-  const optimerRegular = new FontLoader().parse(optimer)
-
-  const textOptions = {
-    font: optimerRegular,
-    size: 0.5,
-    depth: 0.1
-  }
-  
-  return(
-    <mesh position={[1, 1, 6]} rotation={[0, 0, 0]}>
-      <textGeometry attach='geometry' args={["Entrance", textOptions]}/>
-      <meshLambertMaterial attach='material' color={'orange'}/>
-    </mesh>
-  )
-
-}
 
 function Box(props) {
   // This reference gives us direct access to the THREE.Mesh object
@@ -109,13 +84,22 @@ const Velociraptor = () => {
 
 export default function Room() {
 
-  const [ roomList, setRoomList] = useState([1,2])
-
   return (
     <Canvas>
-      <TicketCenter />
-      <OwenFamilyRoom />
-      <EntranceRoom />
+      <TicketCenterText />
+      <OwenFamilyRoomText />
+      <EntranceRoomText />
+      <CoatCheckRoomTextText />
+      <EllisFamilyHallText />
+      <KitHopkinsEducationWingText />
+      <TerrellLeonLectureRoomText />
+      <HaleyHallText />
+      <CabreraHallText />
+      <PaxtonDeckerTerraceText />
+      <RobertsRoomText />
+      <BlackwellAmphitheaterText />
+      <ReyesHallText />
+      <BryanDeckerHallText />
       <ambientLight intensity={Math.PI / 2} />
       <spotLight position={[1, 100, 1]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI} />
       <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI} />

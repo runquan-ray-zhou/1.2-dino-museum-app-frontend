@@ -1,7 +1,7 @@
 import { FontLoader } from "three/examples/jsm/loaders/FontLoader"
 import optimer from "three/examples/fonts/optimer_regular.typeface.json"
 
-export default function TicketCenter(){
+export default function BryanDeckerHallText(){
 
     const optimerRegular = new FontLoader().parse(optimer)
   
@@ -12,8 +12,8 @@ export default function TicketCenter(){
     }
     
     return(
-      <mesh position={[1, 1, 4]} rotation={[0, 0, 0]}>
-        <textGeometry attach='geometry' args={["Ticket Center", textOptions]}/>
+      <mesh position={[-3.5, 2.5, -4]} rotation={[0, 0, 0]}>
+        <textGeometry attach='geometry' args={["Bryan\nDecker\nHall", textOptions]}/>
         <meshLambertMaterial attach='material' color={'orange'}/>
       </mesh>
     )
