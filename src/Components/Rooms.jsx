@@ -6,10 +6,11 @@ import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader"
 import { FontLoader } from "three/examples/jsm/loaders/FontLoader"
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry';
 import optimer from "three/examples/fonts/optimer_regular.typeface.json"
+import TicketCenter from "./TicketCenter.jsx"
 
 extend({ TextGeometry })
 
-function Texts1(){
+function OwenFamilyRoom(){
 
   const optimerRegular = new FontLoader().parse(optimer)
 
@@ -28,7 +29,7 @@ function Texts1(){
 
 }
 
-function Texts2(){
+function EntranceRoom(){
 
   const optimerRegular = new FontLoader().parse(optimer)
 
@@ -112,8 +113,9 @@ export default function Room() {
 
   return (
     <Canvas>
-      <Texts1 />
-      <Texts2 />
+      <TicketCenter />
+      <OwenFamilyRoom />
+      <EntranceRoom />
       <ambientLight intensity={Math.PI / 2} />
       <spotLight position={[1, 100, 1]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI} />
       <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI} />
