@@ -4,6 +4,7 @@ import { useLoader } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader"
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry';
+import { useNavigate } from 'react-router-dom';
 
 // Room Name Text
 import TicketCenterText from "./TicketCenterText.jsx"
@@ -37,7 +38,7 @@ function Box(props) {
       {...props}
       ref={ref}
       scale={1.5}
-      onClick={(event) => click(!clicked)}
+      // onClick={(event) => click(!clicked)}
       onPointerOver={(event) => (event.stopPropagation(), hover(true))}
       onPointerOut={(event) => hover(false)}>
       <boxGeometry args={[1, 1, 1]} />
@@ -83,6 +84,8 @@ const Velociraptor = () => {
 };
 
 export default function Room3DMap() {
+
+  let navigate = useNavigate()
 
   return (
     <Canvas>
@@ -142,7 +145,7 @@ export default function Room3DMap() {
       // Bryan Decker Hall
       <Box position={[4, 0, 4]} />
       // Entrance Room
-      <Box position={[2, 0, 6]} />
+      <Box position={[2, 0, 6]} onClick={() => navigate("/entranceroom")}/>
       <OrbitControls />
     </Canvas>
   )
