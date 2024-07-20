@@ -6,6 +6,14 @@ import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader"
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry';
 import { useNavigate } from 'react-router-dom';
 
+// Dinos
+import Apatosaurus from '../Dinos/Apatosaurus.jsx';
+import Parasaurolophus from '../Dinos/Parasaurolophus.jsx';
+import Stegosaurus from '../Dinos/Stegosaurus.jsx';
+import Trex from '../Dinos/Trex.jsx';
+import Triceratops from '../Dinos/Triceratops.jsx';
+import Velociraptor from '../Dinos/Velocirapton.jsx';
+
 // Room Name Text
 import TicketCenterText from "./TicketCenterText.jsx"
 import OwenFamilyRoomText from "./OwenFamilyRoomText.jsx"
@@ -47,49 +55,18 @@ function Box(props) {
   )
 }
 
-const Apatosaurus = () => {
-  const fbx = useLoader(FBXLoader, "Apatosaurus.fbx");
-
-  return <primitive object={fbx} scale={0.0005} position={[0, -0.6, 7]}/>;
-};
-
-const Parasaurolophus = () => {
-  const fbx = useLoader(FBXLoader, "Parasaurolophus.fbx");
-
-  return <primitive object={fbx} scale={0.0005} position={[1, -0.6, 7]}/>;
-};
-
-const Stegosaurus = () => {
-  const fbx = useLoader(FBXLoader, "Stegosaurus.fbx");
-
-  return <primitive object={fbx} scale={0.0005} position={[2, -0.6, 7]}/>;
-};
-
-const Trex = () => {
-  const fbx = useLoader(FBXLoader, "Trex.fbx");
-
-  return <primitive object={fbx} scale={0.0005} position={[3, -0.6, 7]}/>;
-};
-
-const Triceratops = () => {
-  const fbx = useLoader(FBXLoader, "Triceratops.fbx");
-
-  return <primitive object={fbx} scale={0.0005} position={[4, -0.6, 7]}/>;
-};
-
-const Velociraptor = () => {
-  const fbx = useLoader(FBXLoader, "Velociraptor.fbx");
-
-  return <primitive object={fbx} scale={0.0005} position={[5, -0.6, 7]}/>;
-};
-
 export default function Room3DMap() {
 
+  const [numbers, setNumbers] = useState([0,1])
+ 
   let navigate = useNavigate()
 
   return (
     <Canvas>
       // Rooms
+      {numbers.map(ele => {
+        return <Box position={[1,2,3]}/>
+      })}
       <TicketCenterText />
       <OwenFamilyRoomText />
       <EntranceRoomText />
