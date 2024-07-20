@@ -7,4 +7,4 @@ export default function Apatosaurus(){
   
     return <primitive object={fbx} scale={0.0005} position={[0, -0.6, 7]}/>;
 
-  };
+};

@@ -1,10 +1,9 @@
 import { useRef, useState } from 'react'
 import { Canvas, extend } from '@react-three/fiber'
-import { useLoader } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader"
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry';
 import { useNavigate } from 'react-router-dom';
+import rooms from '../Data/rooms.js';
 
 // Dinos
 import Apatosaurus from '../Dinos/Apatosaurus.jsx';
@@ -32,7 +31,7 @@ import BlackwellAmphitheaterText from './BlackwellAmphitheaterText.jsx';
 
 extend({ TextGeometry })
 
-function Box(props) {
+function Room(props) {
   // This reference gives us direct access to the THREE.Mesh object
   const ref = useRef()
   // Hold state for hovered and clicked events
@@ -57,16 +56,18 @@ function Box(props) {
 
 export default function Room3DMap() {
 
-  const [numbers, setNumbers] = useState([0,1])
+  const [allRooms, setAllRooms] = useState(rooms)
  
   let navigate = useNavigate()
 
   return (
     <Canvas>
       // Rooms
-      {numbers.map(ele => {
-        return <Box position={[1,2,3]}/>
+      {allRooms.map((eachRoom) => {
+        return <Room onClick={() => navigate("/entranceroom")} position={eachRoom.position} />
       })}
+
+      // Room Text
       <TicketCenterText />
       <OwenFamilyRoomText />
       <EntranceRoomText />
@@ -88,41 +89,13 @@ export default function Room3DMap() {
       <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI} />
 
       // Dinos
-      <Apatosaurus/>
+      <Apatosaurus />
       <Parasaurolophus />
       <Stegosaurus />
       <Trex />
       <Triceratops />
       <Velociraptor />
 
-      // Owen Family Room
-      <Box position={[0, 0, -6]} />
-      // Ticket Center
-      <Box position={[0, 0, -4]} />
-      // Ellis Family Hall
-      <Box position={[2, 0, -4]} />
-      // Coat Check Room
-      <Box position={[-2, 0, -4]} />
-      // Kit Hopkins Education Wing
-      <Box position={[0, 0, -2]} />
-      // Terrell Leon Lecture Room
-      <Box position={[2, 0, -2]} />
-      // Cabrera Hall
-      <Box position={[2, 0, 0]} />
-      // Haley Hall
-      <Box position={[0, 0, 0]} />
-      // Roberts Room
-      <Box position={[2, 0, 2]} />
-      // Paxton Decker Terrace
-      <Box position={[0, 0, 2]} />
-      // Blackwell Amphitheater
-      <Box position={[0, 0, 4]} />
-      // Reyes Hall
-      <Box position={[2, 0, 4]} />
-      // Bryan Decker Hall
-      <Box position={[4, 0, 4]} />
-      // Entrance Room
-      <Box position={[2, 0, 6]} onClick={() => navigate("/entranceroom")}/>
       <OrbitControls />
     </Canvas>
   )
