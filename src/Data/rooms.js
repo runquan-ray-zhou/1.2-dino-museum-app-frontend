@@ -8,6 +8,7 @@ const rooms = [
         "A6QaYdyKra", // Ticket Center
       ],
       position: [2, 0, 6],
+      textPosition: [1, 2, 6]
     },
     {
       roomId: "A6QaYdyKra", // 2
@@ -23,6 +24,7 @@ const rooms = [
         "L72moIRcrX", // Kit Hopkins Education Wing
       ],
       position: [2, 0, 4],
+      textPosition: [1, 2, 4]
     },
     {
       roomId: "aIA6tevTne", // 3
@@ -33,6 +35,7 @@ const rooms = [
         "A6QaYdyKra", // Ticket Center
       ],
       position: [4, 0, 4],
+      textPosition: [3.5, 2.5, 4]
     },
     {
       roomId: "dpQnu5wgaN", // 4
@@ -48,6 +51,7 @@ const rooms = [
         "Ys2Trg-1OT", // Terrell Leon Lecture Room
       ],
       position: [0, 0, 4],
+      textPosition: [-1, 2.5, 4]
     },
     {
       roomId: "L72moIRcrX", // 5
@@ -63,6 +67,7 @@ const rooms = [
         "Ys2Trg-1OT", // Terrell Leon Lecture Room
       ],
       position: [2, 0, 2],
+      textPosition: [1.5, 3.5, 2]
     },
     {
       roomId: "0eNtkY5WoA", // 6
@@ -78,6 +83,7 @@ const rooms = [
         "dBZeK6vhpt", // Paxton Decker Terrace
       ],
       position: [2, 0, 0],
+      textPosition: [1.5, 2, 0]
     },
     {
       roomId: "Ys2Trg-1OT", // 7
@@ -90,6 +96,7 @@ const rooms = [
         "VEr3w2ca_v", // Cabrera Hall
       ],
       position: [0, 0, 2],
+      textPosition: [-1, 3.5, 2]
     },
     {
       roomId: "VEr3w2ca_v", // 8
@@ -104,6 +111,7 @@ const rooms = [
         "Y707HL8uP9", // Roberts Room
       ],
       position: [0, 0, 0],
+      textPosition: [-1, 2, 0]
     },
     {
       roomId: "Y707HL8uP9", // 9
@@ -118,6 +126,7 @@ const rooms = [
         "Gp6nCN1JGT", // Reyes Hall
       ],
       position: [0, 0, -2],
+      textPosition: [-1, 2, -2]
     },
     {
       roomId: "dBZeK6vhpt", // 10
@@ -130,6 +139,7 @@ const rooms = [
         "1FMoeqQxFk", // Blackwell Amphitheater
       ],
       position: [2, 0, -2],
+      textPosition: [1.5, 2.5, -2],
     },
     {
       roomId: "1FMoeqQxFk", // 11
@@ -141,6 +151,7 @@ const rooms = [
         "Gp6nCN1JGT", // Reyes Hall
       ],
       position: [2, 0, -4],
+      textPosition: [1.5, 2, -4]
     },
     {
       roomId: "Gp6nCN1JGT", // 12
@@ -160,6 +171,7 @@ const rooms = [
         "nt85di9a1V", // Owen Family Room
       ],
       position: [0, 0, -4],
+      textPosition: [-1, 2, -4]
     },
     {
       roomId: "qi5e4IFDby", // 13
@@ -173,6 +185,7 @@ const rooms = [
         "Gp6nCN1JGT", // Reyes Hall
       ],
       position: [-2, 0, -4],
+      textPosition: [-3.5, 2.5, -4]
     },
     {
       roomId: "nt85di9a1V", // 14
@@ -183,6 +196,7 @@ const rooms = [
         "Gp6nCN1JGT", // Reyes Hall
       ],
       position: [0, 0, -6],
+      textPosition: [-1, 2.5, -6]
     },
   ];
   

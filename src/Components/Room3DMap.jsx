@@ -3,9 +3,11 @@ import { Canvas, extend } from '@react-three/fiber'
 import { OrbitControls } from "@react-three/drei";
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry';
 import { useNavigate } from 'react-router-dom';
+
+// Room Data
 import rooms from '../Data/rooms.js';
 
-// Dinos
+// Dinosaur Component
 import Apatosaurus from '../Dinos/Apatosaurus.jsx';
 import Parasaurolophus from '../Dinos/Parasaurolophus.jsx';
 import Stegosaurus from '../Dinos/Stegosaurus.jsx';
@@ -13,21 +15,8 @@ import Trex from '../Dinos/Trex.jsx';
 import Triceratops from '../Dinos/Triceratops.jsx';
 import Velociraptor from '../Dinos/Velocirapton.jsx';
 
-// Room Name Text
-import TicketCenterText from "./TicketCenterText.jsx"
-import OwenFamilyRoomText from "./OwenFamilyRoomText.jsx"
-import EntranceRoomText from "./EntranceRoomText.jsx"
-import TerrellLeonLectureRoomText from './TerrellLeonLectureRoomText.jsx';
-import RobertsRoomText from './RobertsRoomText.jsx';
-import ReyesHallText from './ReyesHallText.jsx';
-import PaxtonDeckerTerraceText from './PaxtonDeckerTerraceText.jsx';
-import KitHopkinsEducationWingText from './KitHopkinsEducationWingText.jsx';
-import HaleyHallText from './HaleyHallText.jsx';
-import EllisFamilyHallText from './EllisFamilyHallText.jsx';
-import CoatCheckRoomTextText from './CoatCheckRoomText.jsx';
-import CabreraHallText from './CabreraHallText.jsx';
-import BryanDeckerHallText from './BryanDeckerHallText.jsx';
-import BlackwellAmphitheaterText from './BlackwellAmphitheaterText.jsx';
+// Room Name Text Component
+import RoomText from './RoomText.jsx';
 
 extend({ TextGeometry })
 
@@ -68,20 +57,9 @@ export default function Room3DMap() {
       })}
 
       // Room Text
-      <TicketCenterText />
-      <OwenFamilyRoomText />
-      <EntranceRoomText />
-      <CoatCheckRoomTextText />
-      <EllisFamilyHallText />
-      <KitHopkinsEducationWingText />
-      <TerrellLeonLectureRoomText />
-      <HaleyHallText />
-      <CabreraHallText />
-      <PaxtonDeckerTerraceText />
-      <RobertsRoomText />
-      <BlackwellAmphitheaterText />
-      <ReyesHallText />
-      <BryanDeckerHallText />
+      {allRooms.map((eachRoom) => {
+        return <RoomText eachRoom={eachRoom}/>
+      })}
       
       // Lighting
       <ambientLight intensity={Math.PI / 2} />
